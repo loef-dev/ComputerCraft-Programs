@@ -53,3 +53,29 @@ function rotateTo(pos)
         return
     end
 end
+
+function mineShaft(length)
+    -- Checking if we have torches
+    local data = turtle.getItemDetail(1)
+
+    if data then
+        if data.name == "minecraft:torch" then
+            print("I have " .. data.count " torches")
+        else
+            print("I don't have torches")
+            error()
+        end
+    end
+    for l = 1, length do
+        turtle.dig()
+        turtle.forward()
+        turtle.digUp()
+        if length % 5 == 0 and data.count > 0 then
+            turtle.placeUp(1)
+        else
+            print("No torches, stopping")
+            error()
+        end
+        l = l + 1
+    end
+end
