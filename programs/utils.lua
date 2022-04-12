@@ -55,9 +55,10 @@ function rotateTo(pos)
 end
 
 function mineShaft(length)
-    -- Checking if we have torches
-    local data = turtle.getItemDetail(1)
-
+    
+    -- Checking if we have torches in the 16th slot
+    local torchslot = 16
+    local data = turtle.getItemDetail(torchslot)
     if data then
         if data.name == "minecraft:torch" then
             print("I have " .. data.count " torches")
@@ -66,12 +67,16 @@ function mineShaft(length)
             error()
         end
     end
+
+    -- Digging the Tunnel
     for l = 1, length do
         turtle.dig()
         turtle.forward()
         turtle.digUp()
+
+        -- Placing Torches every 5 blocks
         if length % 5 == 0 and data.count > 0 then
-            turtle.placeUp(1)
+            turtle.placeUp(torchslot)
         else
             print("No torches, stopping")
             error()
