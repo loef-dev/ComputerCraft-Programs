@@ -86,7 +86,6 @@ function returnPaces(nPaces)
 end
 
 function mineShaft(length, torchInterval)
-    checkFuel()
     -- Checking if length is number
     if type(length) ~= "number" or type(torchInterval) ~= "number" then
         print("Input length/torchInterval is not a number, please try again")
@@ -112,7 +111,7 @@ function mineShaft(length, torchInterval)
 
         -- Placing Torches every interval
         if length % torchInterval == 0 and data.count > 0 then
-            turtle.placeUp(torchslot)
+            turtle.placeDown(torchslot)
         else
             print("No torches, stopping")
             error()
