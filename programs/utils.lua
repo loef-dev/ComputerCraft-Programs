@@ -61,7 +61,7 @@ end
 
 function isFull()
     for i = 2, 16 do
-        if(turtle.getItemCount(i) == 0 then
+        if turtle.getItemCount(i) == 0 then
              return true
         end
     end
