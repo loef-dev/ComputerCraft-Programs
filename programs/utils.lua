@@ -106,9 +106,6 @@ function mineShaft(length, torchInterval)
     -- Digging the Tunnel
     for l = 1, length do
         turtle.dig()
-        turtle.forward()
-        turtle.digUp()
-
         -- Placing Torches every interval
         if length % torchInterval == 0 and data.count > 0 then
             turtle.placeDown(torchslot)
@@ -116,6 +113,8 @@ function mineShaft(length, torchInterval)
             print("No torches, stopping")
             error()
         end
+        turtle.forward()
+        turtle.digUp()
         l = l + 1
     end
 end
