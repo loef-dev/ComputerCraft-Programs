@@ -3,7 +3,7 @@ os.loadAPI("utils.lua")
 function start()
     pacesSet = 0
     for i = 1, 100 do
-        if !utils.checkFuel() or utils.isFull() then
+        if utils.checkFuel() ~= true or utils.isFull() then
             break
         end
         mineablePosition = utils.checkStone()
@@ -12,7 +12,7 @@ function start()
             mineablePosition = utils.checkStone()
         end
 
-        if moveForward() then
+        if utils.moveForward() ~= true then
             break
         end
 
