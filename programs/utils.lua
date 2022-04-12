@@ -55,7 +55,11 @@ function rotateTo(pos)
 end
 
 function mineShaft(length)
-    
+    -- Checking if length is number
+    if type(length) ~= "number" then
+        print("Input length is not a number")
+        error()
+    end
     -- Checking if we have torches in the 16th slot
     local torchslot = 16
     local data = turtle.getItemDetail(torchslot)
