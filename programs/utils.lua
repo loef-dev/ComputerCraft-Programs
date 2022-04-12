@@ -98,7 +98,7 @@ function returnPaces(nPaces)
     end
 end
 
-function placeTorch()
+function placeTorchBehind()
     -- Checking if we have torches in the 16th slot
     local torchslot = 16
     local data = turtle.getItemDetail(torchslot)
@@ -111,7 +111,7 @@ function placeTorch()
         end
     end
     turtle.select(torchslot)
-    turtle.mine(3)
+    turtle.rotateTo(4)
     turtle.place()
     turtle.rotateTo(2)
 end
