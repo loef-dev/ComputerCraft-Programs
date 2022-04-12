@@ -62,15 +62,15 @@ end
 function isFull()
     for i = 2, 16 do
         if turtle.getItemCount(i) == 0 then
-             return true
+             return false
         end
     end
     for i = 2,16 do
         if turtle.getItemSpace(i) > 0 then
-            return false
+            return true
         end
     end
-    return true
+    return false
 end
 
 function mine(pos)
