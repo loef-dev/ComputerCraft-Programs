@@ -101,5 +101,4 @@ function placeTorch()
     turtle.mine(3)
     turtle.place()
     turtle.rotateTo(2)
-    end
 end
