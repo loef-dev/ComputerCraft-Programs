@@ -108,7 +108,8 @@ function mineShaft(length, torchInterval)
         turtle.dig()
         -- Placing Torches every interval
         if l % torchInterval == 0 and data.count > 0 then
-            turtle.place(torchslot)
+            turtle.select(torchslot)
+            turtle.place()
         else
             print("No torches, stopping")
             error()
