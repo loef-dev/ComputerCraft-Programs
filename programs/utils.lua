@@ -18,10 +18,10 @@ function checkStone()
     print(data.name)
     print(data.metadata)
     local stone = "minecraft:stone"
-    if select(2, turtle.inspectUp()) ~= nil and select(2, turtle.inspectUp()).name ~= stone then
+    if select(2, turtle.inspectUp()).name ~= nil and select(2, turtle.inspectUp()).name ~= stone then
         return 5
     end
-    if select(2, turtle.inspectDown()) ~= nil and select(2, turtle.inspectDown()).name ~= stone then
+    if select(2, turtle.inspectDown()).name ~= nil and select(2, turtle.inspectDown()).name ~= stone then
         return 6
     end
     if inspectPosition(1) ~= nil and inspectPosition(1) ~= stone then
@@ -74,6 +74,14 @@ function isFull()
 end
 
 function mine(pos)
+    if pos == 5 then
+        turtle.digUp()
+        return
+    end
+    if pos == 6 then
+        turtle.digDown()
+        return
+    end
     rotateTo(pos)
     turtle.dig()
 end
