@@ -110,7 +110,7 @@ function mineShaft(length, torchInterval)
         if l % torchInterval == 0 and data.count > 0 then
             turtle.select(torchslot)
             turtle.place()
-        else
+        elseif data.count == 0 then
             print("No torches, stopping")
             error()
         end
