@@ -86,6 +86,7 @@ function returnPaces(nPaces)
 end
 
 function mineShaft(length, torchInterval)
+    checkFuel()
     -- Checking if length is number
     if type(length) ~= "number" or type(torchInterval) ~= "number" then
         print("Input length/torchInterval is not a number, please try again")
