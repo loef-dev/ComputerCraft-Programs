@@ -60,7 +60,12 @@ function rotateTo(pos)
 end
 
 function isFull()
-    for i = 2,1 do
+    for i = 2, 16 do
+        if(turtle.getItemCount(i) == 0 then
+             return true
+        end
+    end
+    for i = 2,16 do
         if turtle.getItemSpace(i) > 0 then
             return false
         end
