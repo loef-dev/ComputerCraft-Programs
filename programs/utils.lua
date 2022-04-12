@@ -54,10 +54,10 @@ function rotateTo(pos)
     end
 end
 
-function mineShaft(length)
+function mineShaft(length, torchInterval)
     -- Checking if length is number
-    if type(length) ~= "number" then
-        print("Input length is not a number")
+    if type(length) ~= "number" or type(torchInterval) ~= "number" then
+        print("Input length/torchInterval is not a number, please try again")
         error()
     end
     -- Checking if we have torches in the 16th slot
@@ -78,8 +78,8 @@ function mineShaft(length)
         turtle.forward()
         turtle.digUp()
 
-        -- Placing Torches every 5 blocks
-        if length % 5 == 0 and data.count > 0 then
+        -- Placing Torches every interval
+        if length % torchInterval == 0 and data.count > 0 then
             turtle.placeUp(torchslot)
         else
             print("No torches, stopping")
