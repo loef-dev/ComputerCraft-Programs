@@ -18,19 +18,19 @@ function checkStone()
     print(data.name)
     print(data.metadata)
     local stone = "minecraft:stone"
-    if select(2, turtle.inspectUp()) == stone then
+    if select(2, turtle.inspectUp()).name != stone then
         return 5
     end
-    if select(2, turtle.inspectDown()) == stone then
+    if select(2, turtle.inspectDown()).name != stone then
         return 6
     end
-    if inspectPosition(1) == stone then
+    if inspectPosition(1) != stone then
         return 1
     end
-    if inspectPosition(2) == stone then
+    if inspectPosition(2) != stone then
         return 2
     end
-    if inspectPosition(3) == stone then
+    if inspectPosition(3) != stone then
         return 3
     end    
     return -1            
@@ -38,7 +38,7 @@ end
  
 function inspectPosition(pos)
     rotateTo(pos)
-    return select(2, turtle.inspect()).metadata
+    return select(2, turtle.inspect()).name
 end
  
 function rotateTo(pos)
