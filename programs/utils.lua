@@ -65,7 +65,7 @@ function mineShaft(length, torchInterval)
     local data = turtle.getItemDetail(torchslot)
     if data then
         if data.name == "minecraft:torch" then
-            print("I have " .. data.count " torches")
+            print("I have " .. tostring(data.count) " torches")
         else
             print("I don't have torches")
             error()
